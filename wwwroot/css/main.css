@@ -1,0 +1,979 @@
+:root{
+    font-size: 16px;
+}
+
+:focus {
+    outline: none;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.hp-banner{
+    display: flex;
+    position: relative;
+    background-image: url(../images/PortoDeLisboa.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.hp-banner::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .75);
+    z-index: 1;
+}
+
+.hp-banner .container{
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 1170px;
+    z-index: 2;
+}
+
+header{
+    position: fixed;
+    z-index: 10;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    width: 100%;
+}
+
+header .container {
+    padding: 22px 0;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header img{
+    height: 100%;
+    width: 100%;
+    max-width: 270px;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    padding: 0 15px;
+    color: var(--blue);
+}
+
+header nav ul li a{
+    color: var(--blue);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+header nav ul li a:hover{
+    color: var(--red);
+}
+
+header.fixed{
+    background-color: var(--white);
+}
+
+header.fixed img{
+    max-width: 200px;
+}
+
+header.fixed nav ul li {
+    padding: 0 10px;
+}
+
+header.fixed nav ul li a {
+    font-size: 1rem;
+}
+
+body > nav{
+    display: none;
+}
+
+
+@media (max-width: 960px) {
+    
+    body > nav{
+        display: block;
+        padding: 30px;
+        background-color: var(--white);
+        position: fixed;
+        top: 0;
+        right: -245px;
+        height: 100vh;
+        width: 100%;
+        max-width: 215px;
+        z-index: 30;
+        transition: all 1.2s ease-in-out;
+        -webkit-transition: all 1.2s ease-in-out;
+    }
+
+    body > nav .header{
+        padding: 0 0 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    body > nav .header .title {
+        color: var(--blue);
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.5rem;
+        
+    }
+
+    body > nav .header .btn {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    body > nav .header .btn span {
+        position: absolute;
+        width: inherit;
+        height: 4px;
+        background-color: var(--blue);
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+    }
+
+    body > nav .header .btn span.animate:first-child, body > nav .header .btn span.animate:last-child {
+        transform: rotate(0);
+    }
+
+    body > nav .header .btn span.animate:first-child {
+        transform: rotate(45deg);
+    }
+
+    body > nav .header .btn span.animate:last-child {
+        transform: rotate(-45deg);
+    }
+
+    body > nav ul{
+        border-top: 5px var(--red) solid;
+    }
+
+    body > nav ul{
+        flex-direction: column;
+        list-style: none;
+    }
+
+    body > nav ul li {
+        padding: 15px;
+    }
+
+    body > nav ul li a{
+        color: var(--blue);
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.25rem;
+        text-decoration: none;
+    }
+
+    body > nav.open{
+        right: 0;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    header .container > .btn {
+        margin: 0 0 0 auto;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 30px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    header .container > .btn span {
+        position: absolute;
+        width: inherit;
+        height: 4px;
+        background-color: var(--blue);
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+    }
+
+    header .container > .btn span:first-child{
+        top: 0px;
+    }
+
+    header .container > .btn span:last-child{
+        bottom: 0px;
+    }
+
+    header .container > .btn span.animate {
+        width: 0;
+    }
+}
+
+@media (max-width: 475px) {
+
+    header img {
+        max-width: 195px;
+    }
+
+    header .container > .btn {
+        width: 45px;
+        height: 30px;
+    }
+
+    header.fixed img {
+        max-width: 175px;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+    header img {
+        max-width: 150px;
+    }
+
+    header .container > .btn {
+        width: 45px;
+        height: 30px;
+    }
+
+    header.fixed img {
+        max-width: 135px;
+    }
+
+}
+
+.hp-banner .content{
+    margin: 0 auto 0 0;
+    position: absolute;
+    bottom: 135px;
+    color: var(--blue);
+    width: 100%;
+    height: 155px;
+    max-width: 600px;
+}
+
+.hp-banner .content .title{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 5rem;
+}
+
+.hp-banner .content .title b{
+    font-weight: 850;
+}
+
+.hp-banner .content .title i{
+    font-weight: 250;
+}
+
+.hp-banner .content span{
+    background-color: var(--red);
+    display: block;
+    height: 5px;
+}
+
+.hp-banner .content .subtitle{
+    padding: 10px 0 0 0;
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 1175px) {
+
+    .hp-banner .content {
+        padding: 0 0 0 30px;
+    }
+
+}
+
+@media (max-width: 625px) {
+
+    .hp-banner .content{
+        max-width: 310px;
+    }
+    
+    .hp-banner .content .title{
+        font-size: 2.25rem;
+    }
+    
+    .hp-banner .content .subtitle{
+        font-size: 1.15rem;
+    }
+
+}
+
+main section > .container, header > .container, footer > .container{
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 1170px;
+}
+
+main section{
+    padding: 100px 0;
+    display: flex;
+}
+
+main .about{
+    background-color:  var(--blue);
+    color: var(--white);
+}
+
+main .about .container > .title, main .booking .container > .title{
+    padding: 0 0 25px 0;
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2.5rem;
+}
+
+main .about .text{
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.15rem;
+    width: auto;
+    max-width: 800px;
+}
+
+main .cargo{
+    background: linear-gradient(to right,var(--lightblue) 50%, var(--white) 50%);
+    color: var(--blue);
+    position: relative;
+}
+
+main .cargo .container .title{
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2.5rem;
+    width: 50%;
+}
+
+main .cargo .container .slider{
+    padding: 10px 0 0 0;
+}
+
+main .cargo .container .slider .slide{
+    padding: 25px 0;
+    display: flex;
+    width: 100%;
+}
+
+main .cargo .container .slider .slide .info, main .cargo .container .slider .slide .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+main .cargo .container .slider .slide .info{
+    flex-direction: column;
+}
+
+main .cargo .container .slider .slide .info .title{
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 3.5rem;
+}
+/*
+main .cargo .container .slider .slide .info .subtitle{
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 350;
+    font-style: normal;
+    font-size: .85rem;
+}*/
+
+main .cargo .container .slider .slide .info .text{
+    text-align: center;
+    /*padding: 25px 0 0 0;*/
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.25rem;
+}
+
+main .cargo .container .slider .slide .info .value{
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 800;
+    font-style: normal;
+    font-size: 5rem;
+}
+
+main .cargo .container .slider .slide .image{
+    margin: 0 auto;
+    background-color: var(--red);
+    width: 100%;
+    max-width: 438px;
+    height: 438px;
+}
+
+main .cargo .container .slider .slide .image img{
+    padding: 30px;
+    background-color: var(--lightblue);
+    position: relative;
+    top: 25px; right: 25px;
+    width: 100%;
+    max-width: 438px;
+    height: 438px;
+}
+
+main .cargo .slider-arrows{
+    display: flex;
+    position: absolute;
+    top:50%; bottom: 50%;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+}
+
+main .cargo .slider-arrows span{
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+main .booking{
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+main .booking .container > .title{
+    text-align: center;
+}
+
+main .booking form{
+    margin: 0 auto;
+    padding: 25px 0 0 0;
+    width: 100%;
+}
+
+main .booking form .form-group{
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+}
+
+main .booking form input::-webkit-input-placeholder, main .booking form textarea::-webkit-input-placeholder {
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.15rem;
+}
+
+main .booking form input::-moz-placeholder, main .booking form textarea::-moz-placeholder {
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.15rem;
+}
+
+main .booking form input:-moz-placeholder, main .booking form textarea:-moz-placeholder {
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.15rem;
+}
+
+main .booking form input:-ms-input-placeholder, main .booking form textarea:-ms-input-placeholder {
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.15rem;
+}
+
+main .booking form .form-group input, main .booking form .form-group textarea{
+    padding: 8px 8px 8px 16px;
+    border: none;
+    border-bottom: 4px var(--white) solid;
+    background-color: #6583B1;
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.15rem;
+}
+
+main .booking form .form-group input[type="text"], main .booking form .form-group input[type="tel"]{
+    margin: 0 auto;
+    width: 45%;
+}
+
+main .booking form .form-group input[type="text"] {
+    margin: 0 auto 0 0;
+}
+main .booking form .form-group input[type="tel"] {
+    margin: 0 0 0 auto;
+}
+
+main .booking form .form-group input[type="datetime-local"]{
+    margin: 0 0 0 auto;
+    width: 50%;
+}
+
+main .booking form .form-group .container{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+}
+
+main .booking form .form-group > .title{
+    text-align: center;
+    width: 100%;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 0 0 25px 0;
+}
+
+main .booking form .form-group .options{
+    padding: 20px;
+    background-color: #6583B1;
+    width: 100%;
+    max-width: 300px;
+}
+
+main .booking form .form-group .options .header{
+    padding: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .booking form .form-group .options input[type="checkbox"]{
+    margin: 0;
+    padding: 0;
+    background-color: var(--lightblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border: 2px var(--blue) solid;
+    border-radius: 5px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+main .booking form .form-group .options input[type="checkbox"]::after{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 1rem;
+    color: var(--white);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+main .booking form .form-group .options input[type="checkbox"]:hover{
+    background-color: var(--blue);
+}
+
+main .booking form .form-group .options input[type="checkbox"]:checked{
+    background-color: var(--blue);
+}
+
+main .booking form .form-group .options input[type="checkbox"]:checked::after{
+    display: flex;
+    background-color: var(--blue);
+}
+
+main .booking form .form-group .options .title{
+    display: inline;
+    font-family: 'Roboto';
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+
+main .booking form .form-group .options .subtitle{
+    font-family: 'Roboto';
+    font-weight: 450;
+    font-style: normal;
+    font-size: .9rem;
+}
+
+main .booking form .form-group .options .text{
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: .85rem;
+}
+
+main .booking form .form-group textarea{
+    height: 215px;
+    width: 100%;
+    resize: none;
+}
+
+main .booking form .form-group input[type="submit"]{
+    margin: 0 0 0 auto;
+    padding: 10px 8px;
+    background-color: var(--white);
+    color: var(--blue);
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.15rem;
+    border: none;
+    border-radius: 10px;
+    width: 175px;
+    cursor: pointer;
+}
+
+@media (max-width: 1175px) {
+
+    main section > .container, footer > .container{
+        padding: 0 50px;
+        width: 100%;
+        max-width: none;
+    }
+
+    header .container {
+        padding: 22px 50px;
+        width: 100%;
+        max-width: none;
+    }
+
+}
+
+@media (max-width: 1024px) {
+
+    main .cargo {
+        background: linear-gradient(to bottom,var(--lightblue) 50%, var(--white) 50%);
+    }
+
+    main .cargo .container .title {
+        text-align: center;
+        width: 100%;
+    }
+
+    main .cargo .container .slider .slide {
+        flex-direction: column;
+    }
+
+    main .cargo .container .slider .slide .info, main .cargo .container .slider .slide .image {
+        width: 100%;
+    }
+
+    main .cargo .container .slider .slide .info {
+        padding: 115px 0;
+    }
+
+    main .booking form .form-group .container {
+        flex-direction: column;
+    }
+
+    main .booking form .form-group .container .options {
+        width: 100%;
+        margin: 12px auto;
+    }
+
+    main .booking form .form-group input[type="datetime-local"]{
+        margin: 0 0 0 auto;
+    }
+
+    main .booking form .form-group textarea {
+        margin: 0 auto;
+    }
+    
+    main .booking form .form-group input[type="text"], main .booking form .form-group input[type="tel"] {
+        margin: 8px auto;
+        width: 100%;
+    }
+
+    main .booking form .form-group {
+        flex-direction: column;
+    }
+
+    main .booking form .form-group textarea {
+        width: 100%;
+    }
+
+    main .booking form .form-group input[type="submit"] {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 690px) {
+    
+    main .cargo .container .title {
+        padding: 0 0 25px 0;
+        font-size: 2rem;
+    }
+
+    main .cargo .container .slider .slide .info .title{
+        font-size: 2rem;
+    }
+    
+    /*
+    main .cargo .container .slider .slide .info .subtitle{
+        font-size: .65rem;
+    }*/
+    
+    main .cargo .container .slider .slide .info .text{
+        font-size: 1rem;
+    }
+    
+    main .cargo .container .slider .slide .info .value{
+        font-size: 2.5rem;
+    }
+
+    main .cargo .container .slider .slide .info {
+        padding: 50px 0;
+    }
+
+    main .cargo .container .slider .slide .image, main .cargo .container .slider .slide .image img {
+        max-width: 300px;
+        height: 300px;
+    }
+
+}
+
+@media (max-width: 590px){
+
+    main section > .container, footer > .container{
+        padding: 0 30px;
+    }
+
+    main .booking form .form-group input[type="datetime-local"] {
+        margin: 0;
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 460px){
+
+    main .about .container > .title, main .booking .container > .title {
+        font-size: 1.75rem;
+    }
+
+    main .cargo .container .title {
+        padding: 0;
+        font-size: 1.5rem;
+    }
+
+    main .cargo .container .slider .slide .image, main .cargo .container .slider .slide .image img {
+        max-width: 200px;
+        height: 200px;
+    }
+
+}
+
+@media (max-width: 405px){
+
+    main .booking form .form-group .options .title {
+        font-size: 1.2rem;
+    }
+
+    main .booking form .form-group .options input[type="checkbox"]{
+        height: 20px;
+        width: 20px;
+        border: 2px var(--blue) solid;
+        border-radius: 3px;
+    }
+    
+    main .booking form .form-group .options input[type="checkbox"]::after{
+        font-size: .75rem;
+        border-radius: 3px;
+    }
+
+}
+
+footer{
+    padding: 50px 0 25px 0;
+    background-color: var(--lightblue);
+}
+
+footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .container .contact-cv > .title , footer .container .contact-ce > .title {
+    padding: 0 0 15px 0;
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.5rem;
+    border-bottom: 3px var(--red) solid;
+}
+
+footer .container .contact-cv nav > .title , footer .container .contact-ce nav > .title {
+    padding: 0 0 12px 0;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+footer .container .contact-cv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+}
+
+footer .container .contact-ce{
+    width: 25%;
+}
+
+footer .container .contact-cv nav, footer .container .contact-ce nav {
+    padding: 15px 0 0 0;
+}
+
+
+footer .container .contact-cv > nav {
+    width: 40%;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+}
+
+footer ul li{
+    padding: 0 0 12px 0;
+    font-family: 'Roboto', 'Font Awesome 5';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+footer ul li span{
+    display: inline;
+}
+
+footer ul li span.fa-phone{
+    transform: rotate(90deg);
+}
+
+footer ul li, footer ul li a{
+    color: var(--blue);
+    text-decoration: none;
+}
+
+footer ul li a, footer ul li p {
+    padding: 0 0 0 10px;
+    display: inline;
+}
+
+footer a{
+    color: var(--blue);
+    text-decoration: none;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+footer a:hover{
+    color: var(--red);
+}
+
+footer .container .copyright, footer .container .contact-cv .title , footer .container .contact-ce .title {
+    color: var(--blue);
+    text-align: center;
+    width: 100%;
+}
+
+footer .container .copyright{
+    padding: 15px 0 0 0;
+    font-size: .85rem;
+}
+
+@media (max-width: 1024px) {
+
+    footer .container .contact-ce, footer .container .contact-cv {
+        width: 100%;
+    }
+
+    footer .container .contact-cv {
+        padding: 30px 0 0 0;
+    }
+
+}
+
+@media (max-width: 665px) {
+
+    footer .container .contact-ce, footer .container .contact-cv {
+        width: 100%;
+    }
+
+    footer .container .contact-cv {
+        padding: 30px 0 0 0;
+    }
+
+    footer .container .contact-cv nav {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 665px) {
+
+    footer .container .copyright {
+        font-size: .7rem;
+    }
+
+}
