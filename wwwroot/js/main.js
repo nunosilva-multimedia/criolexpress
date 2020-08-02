@@ -84,3 +84,38 @@ $('body > nav .header .btn').click(function(){
     });
 
 });
+
+$('main .booking form .form-group input[type="submit"]').click(function(){
+
+    var checkForm = document.querySelector("form");
+    if (!checkForm.checkValidity()) {
+        $('.form-invalid').addClass('show');
+    } else {
+        $('.form-valid').addClass('show');
+    } 
+
+});
+
+$('.terms-conditions').click(function(){
+    $('.terms-conditions-modal').addClass('show');
+});
+
+$('.privacy-policy').click(function(){
+    $('.privacy-policy-modal').addClass('show');
+});
+
+$('.form-valid button').click(function(){
+    $('.form-valid').removeClass('show');
+});
+
+$('.form-invalid button').click(function(){
+    $('.form-invalid').removeClass('show');
+});
+
+$('.terms-conditions-modal button').click(function(){
+    $('.terms-conditions-modal').removeClass('show');
+});
+
+$('.privacy-policy-modal button').click(function(){
+    $('.privacy-policy-modal').removeClass('show');
+});

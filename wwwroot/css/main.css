@@ -483,7 +483,7 @@ main .booking{
     color: var(--white);
 }
 
-main .booking .container > .title{
+main .booking .container > .title, main .booking .container > .description{
     text-align: center;
 }
 
@@ -499,6 +499,21 @@ main .booking form .form-group{
     flex-wrap: wrap;
     position: relative;
     width: 100%;
+}
+
+main .booking form .form-group.check{
+    align-items: center;
+}
+
+main .booking form .form-group.check .text{
+    padding: 0 0 0 10px;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    cursor: pointer;
+}
+
+main .booking form .form-group.check .text a:hover{
+    color: var(--lightblue);
 }
 
 main .booking form input::-webkit-input-placeholder, main .booking form textarea::-webkit-input-placeholder {
@@ -545,21 +560,30 @@ main .booking form .form-group input, main .booking form .form-group textarea{
     font-size: 1.15rem;
 }
 
-main .booking form .form-group input[type="text"], main .booking form .form-group input[type="tel"]{
+main .booking form .form-group input[name="Date"] {
+    margin: 0 0 0 auto;
+    width: 45%;
+}
+
+main .booking form .form-group input[name="Name"],
+main .booking form .form-group input[name="PhoneNumber"],
+main .booking form .form-group input[name="PostalCode"],
+main .booking form .form-group input[name="City"]{
     margin: 0 auto;
     width: 45%;
 }
 
-main .booking form .form-group input[type="text"] {
+main .booking form .form-group input[name="Name"],
+main .booking form .form-group input[name="PostalCode"] {
     margin: 0 auto 0 0;
 }
-main .booking form .form-group input[type="tel"] {
+main .booking form .form-group input[name="PhoneNumber"],
+main .booking form .form-group input[name="City"] {
     margin: 0 0 0 auto;
 }
 
-main .booking form .form-group input[type="datetime-local"]{
-    margin: 0 0 0 auto;
-    width: 50%;
+main .booking form .form-group input[name="Address"] {
+    width: 100%;
 }
 
 main .booking form .form-group .container{
@@ -591,7 +615,7 @@ main .booking form .form-group .options .header{
     justify-content: space-between;
 }
 
-main .booking form .form-group .options input[type="checkbox"]{
+main .booking form .form-group .options input[type="checkbox"], main .booking form .form-group input[name="TermsConditions"], main .booking form .form-group input[name="DataProtectionPolicy"] {
     margin: 0;
     padding: 0;
     background-color: var(--lightblue);
@@ -607,7 +631,11 @@ main .booking form .form-group .options input[type="checkbox"]{
     -webkit-appearance: none;
 }
 
-main .booking form .form-group .options input[type="checkbox"]::after{
+main .booking form .form-group input[name="TermsConditions"], main .booking form .form-group input[name="DataProtectionPolicy"] {
+    border: 2px var(--white) solid;
+}
+
+main .booking form .form-group .options input[type="checkbox"]::after, main .booking form .form-group input[name="TermsConditions"]::after, main .booking form .form-group input[name="DataProtectionPolicy"]::after {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     content: "\f00c";
@@ -622,15 +650,15 @@ main .booking form .form-group .options input[type="checkbox"]::after{
     height: 100%;
 }
 
-main .booking form .form-group .options input[type="checkbox"]:hover{
+main .booking form .form-group .options input[type="checkbox"]:hover, main .booking form .form-group input[name="TermsConditions"]:hover, main .booking form .form-group input[name="DataProtectionPolicy"]:hover {
     background-color: var(--blue);
 }
 
-main .booking form .form-group .options input[type="checkbox"]:checked{
+main .booking form .form-group .options input[type="checkbox"]:checked, main .booking form .form-group input[name="TermsConditions"]:checked, main .booking form .form-group input[name="DataProtectionPolicy"]:checked {
     background-color: var(--blue);
 }
 
-main .booking form .form-group .options input[type="checkbox"]:checked::after{
+main .booking form .form-group .options input[type="checkbox"]:checked::after, main .booking form .form-group input[name="TermsConditions"]:checked::after, main .booking form .form-group input[name="DataProtectionPolicy"]:checked::after {
     display: flex;
     background-color: var(--blue);
 }
@@ -666,7 +694,9 @@ main .booking form .form-group textarea{
 main .booking form .form-group input[type="submit"]{
     margin: 0 0 0 auto;
     padding: 10px 8px;
-    background-color: var(--white);
+    background: linear-gradient(to right, var(--lightblue) 50%, var(--white) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
     color: var(--blue);
     font-family: 'Roboto';
     font-weight: 600;
@@ -676,6 +706,12 @@ main .booking form .form-group input[type="submit"]{
     border-radius: 10px;
     width: 175px;
     cursor: pointer;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+main .booking form .form-group input[type="submit"]:hover{
+    background-position: left bottom;
 }
 
 @media (max-width: 1175px) {
@@ -741,6 +777,10 @@ main .booking form .form-group input[type="submit"]{
 
     main .booking form .form-group {
         flex-direction: column;
+    }
+
+    main .booking form .form-group {
+        flex-direction: row;
     }
 
     main .booking form .form-group textarea {
@@ -838,6 +878,20 @@ main .booking form .form-group input[type="submit"]{
 
 }
 
+
+@media (max-width: 375px){
+
+    main .booking form .form-group.check .text {
+        font-size: .8rem;
+    }
+
+    main .booking form .form-group input[name="TermsConditions"], main .booking form .form-group input[name="DataProtectionPolicy"] {
+        height: 20px;
+        width: 20px;
+    }
+
+}
+
 footer{
     padding: 50px 0 25px 0;
     background-color: var(--lightblue);
@@ -874,7 +928,7 @@ footer .container .contact-cv{
 }
 
 footer .container .contact-ce{
-    width: 25%;
+    width: 22.5%;
 }
 
 footer .container .contact-cv nav, footer .container .contact-ce nav {
@@ -939,7 +993,13 @@ footer .container .copyright, footer .container .contact-cv .title , footer .con
 
 footer .container .copyright{
     padding: 15px 0 0 0;
+    display: flex;
+    justify-content: space-around;
     font-size: .85rem;
+}
+
+footer .container .copyright .terms-conditions, footer .container .copyright .privacy-policy {
+    cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -974,6 +1034,168 @@ footer .container .copyright{
 
     footer .container .copyright {
         font-size: .7rem;
+    }
+
+}
+
+@media (max-width: 515px){
+
+    footer .container .copyright {
+        flex-direction: column;
+    }
+
+    footer .container .copyright .group{
+        padding: 5px 0;
+    }
+
+}
+
+.form-valid, .form-invalid, .terms-conditions-modal, .privacy-policy-modal{
+    background-color: rgba(255, 255, 255, .3);
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-valid.show, .form-invalid.show, .terms-conditions-modal.show, .privacy-policy-modal.show{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.form-valid .container, .form-invalid .container {
+    background-color: var(--blue);
+    padding: 50px;
+    margin: auto;
+    max-width: 550px;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-valid .container .text,.form-invalid .container .text {
+    padding: 0 0 40px 0;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.15rem;
+    color: var(--white);
+}
+
+.form-valid .container button, .form-invalid .container button, .terms-conditions-modal .container button, .privacy-policy-modal .container button{
+    padding: 10px 8px;
+    background: linear-gradient(to right, var(--lightblue) 50%, var(--white) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: var(--blue);
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    width: 140px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+.form-valid .container button:hover, .form-invalid .container button:hover, .terms-conditions-modal .container button:hover, .privacy-policy-modal .container button:hover{
+    background-position: left bottom;
+}
+
+.terms-conditions-modal .container, .privacy-policy-modal .container{
+    background-color: var(--blue);
+    padding: 25px 50px;
+    margin: auto;
+    max-width: 550px;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-valid .container .title, .form-invalid .container .title, .terms-conditions-modal .container .title, .privacy-policy-modal .container .title{
+    text-align: left;
+    padding: 0 0 15px 0;
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2em;
+}
+
+.form-valid .container .title, .form-invalid .container .title {
+    text-align: center;
+}
+
+.terms-conditions-modal .container .info, .privacy-policy-modal .container .info{
+    max-height: 400px;
+    overflow-y: scroll;
+    text-align: left;
+}
+
+.terms-conditions-modal .container .info .text, .privacy-policy-modal .container .info .text {
+    padding: 0 0 15px 0;
+    font-family: 'Roboto';
+    font-weight: 450;
+    font-style: normal;
+    font-size: 1.15rem;
+    color: var(--white);
+}
+
+/* width */
+.terms-conditions-modal .container .info::-webkit-scrollbar, .privacy-policy-modal .container .info::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+.terms-conditions-modal .container .info::-webkit-scrollbar-track, .privacy-policy-modal .container .info::-webkit-scrollbar-track {
+    background: var(--blue);
+}
+
+/* Handle */
+.terms-conditions-modal .container .info::-webkit-scrollbar-thumb, .privacy-policy-modal .container .info::-webkit-scrollbar-thumb {
+    background: var(--lightblue);
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+.terms-conditions-modal .container .info::-webkit-scrollbar-thumb:hover, .privacy-policy-modal .container .info::-webkit-scrollbar-thumb:hover {
+    background: var(--white); 
+}
+
+@media (max-width: 625px) {
+
+    .form-valid .container, .form-invalid .container, .terms-conditions-modal .container, .privacy-policy-modal .container {
+        width: 75%;
+    }
+
+}
+
+@media (max-width: 445px) {
+
+    .form-valid .container, .form-invalid .container, .terms-conditions-modal .container, .privacy-policy-modal .container {
+        width: 75%;
+    }
+
+    .terms-conditions-modal .container, .privacy-policy-modal .container{
+        padding: 25px;
+    }
+
+    .form-valid .container .title, .form-invalid .container .title, .terms-conditions-modal .container .title, .privacy-policy-modal .container .title {
+        font-size: 1.3em;
+    }
+
+    .form-valid .container .text, .form-invalid .container .text {
+        font-size: 1rem;
     }
 
 }
