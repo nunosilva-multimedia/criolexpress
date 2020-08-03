@@ -2,7 +2,7 @@
     font-size: 16px;
 }
 
-:focus {
+input:focus {
     outline: none;
 }
 
@@ -487,6 +487,12 @@ main .booking .container > .title, main .booking .container > .description{
     text-align: center;
 }
 
+main .booking .container > .description{
+    font-size: 1.1rem;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
 main .booking form{
     margin: 0 auto;
     padding: 25px 0 0 0;
@@ -494,11 +500,16 @@ main .booking form{
 }
 
 main .booking form .form-group{
-    padding: 16px 0;
+    padding: 24px 0;
     display: flex;
     flex-wrap: wrap;
     position: relative;
     width: 100%;
+}
+
+main .booking form .form-group .input-group{
+    margin: 0 auto;
+    width: 45%;
 }
 
 main .booking form .form-group.check{
@@ -509,35 +520,15 @@ main .booking form .form-group.check .text{
     padding: 0 0 0 10px;
     transition: var(--transition);
     -webkit-transition: var(--transition);
+}
+
+main .booking form .form-group.check .text a{
     cursor: pointer;
 }
 
+
 main .booking form .form-group.check .text a:hover{
     color: var(--lightblue);
-}
-
-main .booking form input::-webkit-input-placeholder, main .booking form textarea::-webkit-input-placeholder {
-    color: var(--white);
-    font-family: 'Roboto';
-    font-weight: 200;
-    font-style: normal;
-    font-size: 1.15rem;
-}
-
-main .booking form input::-moz-placeholder, main .booking form textarea::-moz-placeholder {
-    color: var(--white);
-    font-family: 'Roboto';
-    font-weight: 200;
-    font-style: normal;
-    font-size: 1.15rem;
-}
-
-main .booking form input:-moz-placeholder, main .booking form textarea:-moz-placeholder {
-    color: var(--white);
-    font-family: 'Roboto';
-    font-weight: 200;
-    font-style: normal;
-    font-size: 1.15rem;
 }
 
 main .booking form input:-ms-input-placeholder, main .booking form textarea:-ms-input-placeholder {
@@ -565,25 +556,49 @@ main .booking form .form-group input[name="Date"] {
     width: 45%;
 }
 
-main .booking form .form-group input[name="Name"],
-main .booking form .form-group input[name="PhoneNumber"],
-main .booking form .form-group input[name="PostalCode"],
-main .booking form .form-group input[name="City"]{
+main .booking form .form-group .input-group {
     margin: 0 auto;
     width: 45%;
 }
 
-main .booking form .form-group input[name="Name"],
-main .booking form .form-group input[name="PostalCode"] {
+main .booking form .form-group .input-group input {
+    display: block;
+    width: 100%;
+}
+
+main .booking form .form-group .input-group.left {
     margin: 0 auto 0 0;
 }
-main .booking form .form-group input[name="PhoneNumber"],
-main .booking form .form-group input[name="City"] {
+main .booking form .form-group .input-group.right {
     margin: 0 0 0 auto;
 }
 
 main .booking form .form-group input[name="Address"] {
     width: 100%;
+}
+
+main .booking form .form-group label {
+    padding: 0 0 0 16px;
+    top: 32px;
+    position: absolute;
+    color: var(--white);
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.15rem;
+    pointer-events: none;
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+main .booking form .form-group input:focus ~ label,
+main .booking form .form-group input:valid ~ label,
+main .booking form .form-group textarea:focus ~ label,
+main .booking form .form-group textarea:valid ~ label {
+    padding: 0;
+    top: -5px;
+    font-size: .9rem;
+    font-weight: 600;
 }
 
 main .booking form .form-group .container{
@@ -671,18 +686,12 @@ main .booking form .form-group .options .title{
     font-size: 1.5rem;
 }
 
-main .booking form .form-group .options .subtitle{
+main .booking form .form-group .options .text{
+    padding: 0 0 0 32px;
     font-family: 'Roboto';
     font-weight: 450;
     font-style: normal;
     font-size: .9rem;
-}
-
-main .booking form .form-group .options .text{
-    font-family: 'Roboto';
-    font-weight: 200;
-    font-style: normal;
-    font-size: .85rem;
 }
 
 main .booking form .form-group textarea{
@@ -755,6 +764,10 @@ main .booking form .form-group input[type="submit"]:hover{
 
     main .booking form .form-group .container {
         flex-direction: column;
+    }
+
+    main .booking form .form-group label {
+        top: 40px;
     }
 
     main .booking form .form-group .container .options {
@@ -833,9 +846,38 @@ main .booking form .form-group input[type="submit"]:hover{
         padding: 0 30px;
     }
 
+    main .booking form .form-group {
+        padding: 12px 0;
+    }
+
     main .booking form .form-group input[type="datetime-local"] {
         margin: 0;
         width: 100%;
+    }
+
+    main .booking form .form-group .input-group {
+        width: 100%;
+    }
+    main .booking form .form-group label {
+        top: 30px;
+    }
+
+    main .booking form .form-group .input-group.right {
+        padding: 12px 0 0 0;
+    }
+
+    main .booking form .form-group .input-group.right label {
+        top: 100px;
+    }
+
+    main .booking form .form-group .input-group.left input:focus ~ label,
+    main .booking form .form-group .input-group.left input:valid ~ label {
+        top: -5px;
+    }
+
+    main .booking form .form-group .input-group.right input:focus ~ label,
+    main .booking form .form-group .input-group.right input:valid ~ label {
+        top: 70px;
     }
 
 }
@@ -851,6 +893,10 @@ main .booking form .form-group input[type="submit"]:hover{
         font-size: 1.5rem;
     }
 
+    main .booking .container > .description{
+        font-size: .9rem;
+    }
+
     main .cargo .container .slider .slide .image, main .cargo .container .slider .slide .image img {
         max-width: 200px;
         height: 200px;
@@ -859,6 +905,10 @@ main .booking form .form-group input[type="submit"]:hover{
 }
 
 @media (max-width: 405px){
+
+    main .booking form .form-group .container .options {
+        width: 75%;
+    }
 
     main .booking form .form-group .options .title {
         font-size: 1.2rem;
@@ -881,6 +931,10 @@ main .booking form .form-group input[type="submit"]:hover{
 
 @media (max-width: 375px){
 
+    main .booking form .form-group .container .options {
+        width: 85%;
+    }
+
     main .booking form .form-group.check .text {
         font-size: .8rem;
     }
@@ -888,6 +942,14 @@ main .booking form .form-group input[type="submit"]:hover{
     main .booking form .form-group input[name="TermsConditions"], main .booking form .form-group input[name="DataProtectionPolicy"] {
         height: 20px;
         width: 20px;
+    }
+
+}
+
+@media (max-width: 345px){
+
+    main .booking form .form-group .container .options {
+        width: 100%;
     }
 
 }
@@ -908,7 +970,7 @@ footer .container .contact-cv > .title , footer .container .contact-ce > .title 
     font-family: 'Roboto';
     font-weight: 600;
     font-style: normal;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border-bottom: 3px var(--red) solid;
 }
 
@@ -928,7 +990,7 @@ footer .container .contact-cv{
 }
 
 footer .container .contact-ce{
-    width: 22.5%;
+    width: 20%;
 }
 
 footer .container .contact-cv nav, footer .container .contact-ce nav {
@@ -953,7 +1015,7 @@ footer ul li{
     font-family: 'Roboto', 'Font Awesome 5';
     font-weight: 300;
     font-style: normal;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 footer ul li span{

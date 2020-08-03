@@ -92,6 +92,7 @@ $('main .booking form .form-group input[type="submit"]').click(function(){
         $('.form-invalid').addClass('show');
     } else {
         $('.form-valid').addClass('show');
+        $.post('index.html');
     } 
 
 });

@@ -138,66 +138,71 @@
         <section class="booking" id="booking">
             <div class="container">
                 <h3 class="title">FAÇA JÁ A SUA MARCAÇÃO</h3>
-                <p class="description">As recolhas são efetuadas por zonas, por isso assim que recebermos a sua marcação vamos contacta-lo para confirmar e/ou reagendar.</p>
-                <form action="index.html" method="POST">
+                <p class="description">As recolhas e/ou entregas estão condicionadas à sua localização, por isso assim que recebermos a sua marcação vamos contacta-lo para confirmar e/ou reagendar.</p>
+                <form action="" method="POST">
                     <div class="form-group">
-                        <input type="datetime-local" name="Date" id="">
+                        <input type="datetime-local" name="Date">
                     </div>
                     <div class="form-group">
-                        <!--<label for="">Name</label>-->
-                        <input type="text" name="Name" id="" placeholder="Nome" required>
-                        <!--<label for="">Telemóvel</label>-->
-                        <input type="tel" name="PhoneNumber" id="" placeholder="Telemóvel" required>
+                        <div class="input-group left">
+                            <input type="text" name="Name" required>
+                            <label>Nome</label>
+                        </div>
+                        <div class="input-group right">
+                            <input type="tel" name="PhoneNumber" required>
+                            <label>Telemóvel</label>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <!--<label for="">Morada</label>-->
-                        <input type="text" name="Address" id="" placeholder="Morada" required>
+                        <input type="text" name="Address" required>
+                        <label>Morada</label>
                     </div>
                     <div class="form-group">
-                        <!--<label for="Código Postal"></label>-->
-                        <input type="text" name="PostalCode" id="" pattern="\d{4}-\d{3}" placeholder="2720-272">
-                        <!--<label for="">Localidade</label>-->
-                        <input type="text" name="City" id="" placeholder="Reboleira" >
+                        <div class="input-group left">
+                            <input type="text" name="PostalCode" required>
+                            <label>Código Postal</label>
+                        </div>
+                        <div class="input-group right">
+                            <input type="text" name="City" required>
+                            <label>Localidade</label>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label class="title">Selecionar Serviços</label>
+                        <h3 class="title">Selecionar Serviços</h3>
                         <div class="container">
                             <div class="options">
                                 <div class="header">
-                                    <input type="checkbox" name="BoxCollection" id="">
+                                    <input type="checkbox" name="BoxCollection">
                                     <h5 class="title">Recolha de Caixas</h5>
                                 </div>
-                                <h6 class="subtitle">A duração varia Condicionado à localização</h6>
                                 <p class="text">Recolhemos seus volumes onde lhe convir, em horário a combinar.</p>
                             </div>
                             <div class="options">
                                 <div class="header">
-                                    <input type="checkbox" name="CollectingDrums" id="">
+                                    <input type="checkbox" name="CollectingDrums">
                                     <h5 class="title">Recolha de Bidões</h5>
                                 </div>
-                                <h6 class="subtitle">A duração varia Condicionado à localização</h6>
                                 <p class="text">Recolhemos o seu bidão para envio, no dia e horário que melhor lhe for conveniente.</p>
                             </div>
                             <div class="options">
                                 <div class="header">
-                                    <input type="checkbox" name="BoxDelivery" id="">
+                                    <input type="checkbox" name="BoxDelivery">
                                     <h5 class="title">Entrega de Caixas</h5>
                                 </div>
-                                <h6 class="subtitle">A duração varia Condicionado à localização</h6>
                                 <p class="text">Levamos o bidão a sua casa sem necessidade de se deslocar.</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <!--<label for="">Nota</label>-->
-                        <textarea name="" placeholder="Nota"></textarea>
+                        <textarea name="Note"></textarea>
+                        <label>Nota</label>
                     </div>
                     <div class="form-group check">
-                        <input type="checkbox" name="TermsConditions" id="">
+                        <input type="checkbox" name="TermsConditions">
                         <p class="text">Li e aceito os <a class="terms-conditions">Termos & Condições</a></p>
                     </div>
                     <div class="form-group check">
-                        <input type="checkbox" name="DataProtectionPolicy" id="">
+                        <input type="checkbox" name="DataProtectionPolicy">
                         <p class="text">Li e aceito a <a class="privacy-policy">Política de Privacidade</a></p>
                     </div>
                     <div class="form-group">
